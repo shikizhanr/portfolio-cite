@@ -1,0 +1,496 @@
+/* --- Настройки и Переменные --- */
+:root {
+    /* Палитра цветов */
+    --color-primary: #34495e;    /* Глубокий темный для текста заголовков */
+    --color-accent: #3498db;     /* Приятный синий для акцентов */
+    --color-accent-hover: #2980b9; /* Цвет при наведении */
+    --color-text-body: #555555;  /* Мягкий серый для основного текста */
+    --color-bg-main: #ffffff;
+    --color-bg-alt: #f8faff;     /* Очень светлый голубовато-серый для фона секций */
+    --color-border: #e1e8ed;
+
+    /* Шрифты */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Тени для объема */
+    --shadow-soft: 0 10px 25px -5px rgba(52, 152, 219, 0.1), 0 5px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-hover: 0 20px 30px -10px rgba(52, 152, 219, 0.2);
+
+    /* Отступы */
+    --section-spacing: 5rem;
+}
+
+/* --- Базовые стили --- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-body);
+    background-color: var(--color-bg-main);
+    line-height: 1.6;
+}
+
+h1, h2, h3, .logo {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* Утилита для ограничения ширины контента */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+/* Доступность: фокус и skip-link */
+.skip-link {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 10px 20px;
+    z-index: 200;
+    transition: top 0.2s;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 2px solid var(--color-primary);
+}
+
+/* Видимый фокус при навигации с клавиатуры */
+:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* --- Структура Grid --- */
+.grid-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Хедер, Основной контент (тянется), Футер */
+    min-height: 100vh;
+}
+
+/* --- Header & Nav --- */
+.header {
+    padding: 1rem 0;
+    background: rgba(255, 255, 255, 0.95); /* Полупрозрачный фон */
+    backdrop-filter: blur(10px); /* Эффект размытия фона (для современных браузеров) */
+    border-bottom: 1px solid var(--color-border);
+    position: sticky; /* Липкая шапка */
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.3rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-primary);
+}
+
+.nav-menu a:hover {
+    color: var(--color-accent);
+}
+
+/* --- Основной контент --- */
+.section-padding {
+    padding: var(--section-spacing) 0;
+}
+
+.bg-alt {
+    background-color: var(--color-bg-alt);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+/* Декоративная линия под заголовками */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--color-accent);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 6rem 0;
+    text-align: center;
+    /* Мягкий градиент на фоне */
+    background: linear-gradient(135deg, var(--color-bg-main) 0%, var(--color-bg-alt) 100%);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.hero-skills {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-skills li {
+    background: #fff;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* --- Портфолио Карточки (Grid + Flex) --- */
+/* Теперь проекты идут списком друг под другом */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Карточка проекта */
+.project-card {
+  display: flex;
+  flex-direction: column; /* На мобилках картинка сверху, текст снизу */
+  gap: 2rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--color-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: transparent;
+}
+
+/* Обертка для картинок */
+.img-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-bg-alt);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+/* Сама картинка */
+.img-wrapper img {
+  width: 100%;
+  height: auto;
+  max-height: 350px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.project-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .project-card {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .img-wrapper.vertical {
+    width: 30%;
+  }
+  
+  .img-wrapper.horizontal {
+    width: 50%;
+  }
+}
+
+/* Сброс лишних отступов у заголовков внутри */
+.project-info h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.project-info p {
+    margin-bottom: 1rem;
+}
+
+.project-info .project-link {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* Эффект приподнимания при наведении */
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: transparent;
+}
+
+.project-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Теги технологий */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tech-tags span {
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.project-link {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* --- О себе (Grid для десктопа) --- */
+.about-grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-photobox-shadow {
+    box-shadow: var(--shadow-soft);
+}
+
+/* --- Контакты и Форма (Практика 7) --- */
+.contact-wrapper {
+    display: grid;
+    gap: 3rem;
+}
+
+.contact-links {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-links a {
+    color: var(--color-accent);
+    font-weight: 600;
+    position: relative;
+}
+
+/* Подчеркивание при наведении для ссылок */
+.contact-links a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.contact-links a:hover::before {
+    width: 100%;
+}
+
+.contact-form {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-field label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+}
+
+.form-field label span {
+    color: var(--color-accent);
+} /* Звездочка обязательного поля */
+
+input[type="text"],
+input[type="email"] {
+    padding: 0.9rem;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    border-color: var(--color-accent);
+    outline: none;
+}
+
+.checkbox-field {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.checkbox-field input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-accent);
+}
+
+/* Кнопка */
+.btn-primary {
+    padding: 1rem 2rem;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover {
+    background: var(--color-accent-hover);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* --- Footer --- */
+.footer {
+    padding: 2rem 0;
+    text-align: center;
+    background: var(--color-primary);
+    color: #fff;
+    margin-top: auto;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* --- Медиазапросы (Практика 5 + Адаптация Grid) --- */
+@media (min-width: 768px) {
+    .hero-content h1 {
+        font-size: 4.5rem;
+    }
+
+    /* На десктопе фото и текст "О себе" встают рядом */
+    .about-grid {
+        grid-template-columns: 3fr 2fr;
+    }
+
+    .about-photobox-shadow {
+        order: 2; /* Фото справа */
+    }
+
+    .about-content {
+        order: 1;
+    }
+
+    /* Контакты в две колонки */
+    .contact-wrapper {
+        grid-template-columns: 1fr 1.5fr;
+        align-items: start;
+    }
+}
+
+@media (max-width: 767px) {
+    .nav-menu {
+        gap: 1rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .project-card {
+        padding: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Жанар Аусиилова | Data Scientist Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/grid-styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Перейти к контенту</a>
+
+  <div class="grid-layout">
+    <header class="header">
+      <div class="container header-content">
+        <div class="logo">Жанар Аусиилова</div>
+        <nav aria-label="Основная навигация">
+          <ul class="nav-menu">
+            <li><a href="#portfolio">Проекты</a></li>
+            <li><a href="#about">О себе</a></li>
+            <li><a href="#contact">Контакты</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-area">
+      <section class="hero-section">
+        <div class="container hero-content">
+          <h1>Data Scientist</h1>
+          <p class="hero-subtitle">Разрабатываю модели машинного обучения, анализирую данные. Ищу работу/стажировку.</p>
+          <ul class="hero-skills">
+            <li>Python</li>
+            <li>PyTorch</li>
+            <li>CatBoost</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+      </section>
+
+    <section class="section-padding" id="portfolio">
+      <div class="container">
+        <h2 class="section-title">Мои проекты</h2>
+        <div class="gallery">
+        <article class="project-card">
+          <div class="img-wrapper vertical">
+            <img src="img/project1.jpg" alt="Схема архитектуры">
+          </div>
+          <div class="project-info">
+            <h3>Мультимодальная оценка габаритов</h3>
+            <div class="tech-tags">
+            <span>Python</span><span>PyTorch</span><span>CatBoost</span><span>BERT</span>
+            </div>
+            <p>Предсказание характеристик товара (вес, размеры) по фото и описанию. Разработала архитектуру, объединяющую CV, NLP и табличные данные.</p>
+            <a href="https://github.com/shikizhanr" target="_blank" rel="noopener noreferrer" class="project-link">Смотреть на GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="img-wrapper horizontal">
+            <img src="img/project2.jpg" alt="Пример детекции">
+          </div>
+          <div class="project-info">
+            <h3>Обнаружение курительных принадлежностей</h3>
+            <div class="tech-tags">
+            <span>Python</span><span>PyTorch</span><span>EfficientNet</span>
+            </div>
+            <p>Автоматическая модерация изображений для классифайда. Модель классификации на базе EfficientNet-B4. Метрика ROC-AUC ~0.988.</p>
+            <a href="https://github.com/shikizhanr" target="_blank" rel="noopener noreferrer" class="project-link">Смотреть на GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="img-wrapper vertical">
+            <img src="img/graph.jpg" alt="График важности признаков">
+          </div>
+          <div class="project-info">
+            <h3>Предсказание дохода клиента</h3>
+            <div class="tech-tags">
+            <span>Python</span><span>CatBoost</span><span>Pandas</span>
+            </div>
+            <p><strong>Ключевые признаки:</strong></p>
+            <ul style="margin-top: 0; padding-left: 1.2rem; font-size: 0.85rem; margin-bottom: 1rem;">
+            <li><code>client_segment</code> — сегмент (VIP/масс)</li>
+            <li><code>trx_sum_3m</code> — транзакции за 3 мес.</li>
+            <li><code>mcc_favorite</code> — частая категория</li>
+            <li><code>credit_hist</code> — кредитная история</li>
+            </ul>
+            <p>Прогнозирование дохода по профилю клиента ансамблем из 5 моделей. WMAE: 44.3k.</p>
+            <a href="https://github.com/shikizhanr" target="_blank" rel="noopener noreferrer" class="project-link">Смотреть на GitHub →</a>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+      <section class="section-padding bg-alt" id="about">
+        <div class="container about-grid">
+          <div class="about-content">
+            <h2 class="section-title">О себе</h2>
+            <p>Я студентка 3 курса направления «Информационные системы и технологии» ТюмГУ и прохожу обучение по специализации DS в Академии аналитиков Авито.</p>
+            <p>Владею фреймворками PyTorch, Scikit-learn, CatBoost/LightGBM и Transformers. Умею обрабатывать данные с помощью Pandas, NumPy, OpenCV и Albumentations. В работе использую Git, Docker и Jupyter Notebook.</p>
+            <p>В свободное время я хожу в тренажерный зал и играю в настольные игры.</p>
+          </div>
+          <img src="img/profile-placeholder.jpg" alt="Я" class="about-photobox-shadow">
+        </div>
+      </section>
+
+      <section class="section-padding" id="contact">
+        <div class="container">
+          <h2 class="section-title">Связь со мной</h2>
+          <div class="contact-wrapper">
+            <div class="contact-info">
+                <p>Буду рада обсудить возможности работы или сотрудничества.</p>
+                <ul class="contact-links" aria-label="Ссылки для связи">
+                  <li><strong>Email:</strong> <a href="mailto:zhanar@ausiilova.ru">zhanar@ausiilova.ru</a></li>
+                  <li><strong>Telegram:</strong> <a href="https://t.me/shiki_ocu" target="_blank">@shiki_ocu</a></li>
+                  <li><strong>GitHub:</strong> <a href="https://github.com/shikizhanr" target="_blank">github.com/shikizhanr</a></li>
+                </ul>
+            </div>
+
+            <form class="contact-form" action="#" method="POST">
+              <div class="form-field">
+                <label for="name">Имя <span aria-hidden="true">*</span></label>
+                <input type="text" id="name" required aria-required="true" placeholder="Как к вам обращаться?">
+              </div>
+              <div class="form-field">
+                <label for="email">Email <span aria-hidden="true">*</span></label>
+                <input type="email" id="email" required aria-required="true" placeholder="example@mail.com">
+              </div>
+              <div class="form-field checkbox-field">
+                <input type="checkbox" id="subscribe" required>
+                <label for="subscribe">Согласие на обработку данных</label>
+              </div>
+              <button type="submit" class="btn-primary">Отправить сообщение</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+         <p>© 2026 Жанар Аусиилова. Data Scientist Portfolio.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
