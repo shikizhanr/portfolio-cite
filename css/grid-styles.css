@@ -449,13 +449,12 @@ input:focus {
     opacity: 0.9;
 }
 
-/* --- Медиазапросы (Практика 5 + Адаптация Grid) --- */
+/* --- Медиазапросы --- */
 @media (min-width: 768px) {
     .hero-content h1 {
         font-size: 4.5rem;
     }
 
-    /* На десктопе фото и текст "О себе" встают рядом */
     .about-grid {
         grid-template-columns: 3fr 2fr;
     }
@@ -494,3 +493,4 @@ input:focus {
     }
 
 }
+
