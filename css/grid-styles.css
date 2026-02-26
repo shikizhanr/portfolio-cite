@@ -94,7 +94,7 @@ a {
 .header {
     padding: 1rem 0;
     background: rgba(255, 255, 255, 0.95); /* Полупрозрачный фон */
-    backdrop-filter: blur(10px); /* Эффект размытия фона (для современных браузеров) */
+    backdrop-filter: blur(10px); /* Эффект размытия фона */
     border-bottom: 1px solid var(--color-border);
     position: sticky; /* Липкая шапка */
     top: 0;
@@ -196,7 +196,6 @@ a {
 }
 
 /* --- Портфолио Карточки (Grid + Flex) --- */
-/* Теперь проекты идут списком друг под другом */
 .gallery {
   display: flex;
   flex-direction: column;
@@ -493,4 +492,5 @@ input:focus {
     .section-title {
         font-size: 1.75rem;
     }
+
 }
